@@ -43,17 +43,7 @@ public class Application implements Runnable {
 
             if (menuInput == 1) {
 
-                int count = 1;
-                for (Video v: videos){
-                    SaxionApp.print(count + ") "+ v);
-                    if (v.isSeen()) {
-                        SaxionApp.printLine("[WATCHED]", Color.GREEN);
-                    } else {
-                        SaxionApp.printLine("[NOT WATCHED]", Color.RED);
-                    }
-                    count++;
-
-                }
+                showVideos(videos);
 
                 SaxionApp.pause();
             } else if (menuInput == 2) {
@@ -70,17 +60,22 @@ public class Application implements Runnable {
         } while (menuInput != 0);
     }
 
-    public void watch(ArrayList<Video> v) {
+    private void showVideos(ArrayList<Video> videos) {
         int count = 1;
-        for (Video video : v) {
-            SaxionApp.print(count + ") " + video);
-            if (video.isSeen()) {
+        for (Video v : videos) {
+            SaxionApp.print(count + ") " + v);
+            if (v.isSeen()) {
                 SaxionApp.printLine("[WATCHED]", Color.GREEN);
             } else {
                 SaxionApp.printLine("[NOT WATCHED]", Color.RED);
             }
             count++;
+
         }
+    }
+
+    public void watch(ArrayList<Video> v) {
+        showVideos(v);
 
         SaxionApp.printLine("Pick a video to watch: ");
         int c = SaxionApp.readInt();

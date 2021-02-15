@@ -9,9 +9,10 @@ import java.util.Collections;
 public class BingoMill {
 
     private ArrayList<Integer> numbers = new ArrayList<>();
+    private int bingoMillSize = 75;
 
     public BingoMill(){
-        for (int i = 0; i < 75; i++) {
+        for (int i = 0; i < bingoMillSize; i++) {
             numbers.add(i+1);
         }
     }
@@ -34,7 +35,7 @@ public class BingoMill {
 
     public void reset(){
         numbers.clear();
-        for (int i = 0; i < 75; i++) {
+        for (int i = 0; i < bingoMillSize; i++) {
             numbers.add(i+1);
         }
         shuffle();
@@ -42,8 +43,8 @@ public class BingoMill {
 
     public void shuffle(){
         for (int i = 0; i < 500; i++) {
-            int a = SaxionApp.getRandomValueBetween(0,75);
-            int b = SaxionApp.getRandomValueBetween(0,75);
+            int a = SaxionApp.getRandomValueBetween(0,bingoMillSize);
+            int b = SaxionApp.getRandomValueBetween(0,bingoMillSize);
             Collections.swap(numbers, a, b);
         }
 

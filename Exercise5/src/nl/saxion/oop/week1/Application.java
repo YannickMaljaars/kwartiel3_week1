@@ -29,7 +29,6 @@ public class Application implements Runnable {
         // plane.depart(); <-- This should result in a print stating that we cannot depart!
 
         plane = new Airplane();
-
         while(true){
 
             SaxionApp.clear();
